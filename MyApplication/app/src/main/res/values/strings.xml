@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="name">Name</string>
+    <string name="send_name">Send Name</string>
+    <string name="start_service">Start service</string>
+    <string name="stop_service">Stop service</string>
+    <string name="get_records_count">Get records count</string>
+</resources>

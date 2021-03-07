@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Uses ContentProvider</string>
+    <string name="read_data">Read data</string>
+</resources>
