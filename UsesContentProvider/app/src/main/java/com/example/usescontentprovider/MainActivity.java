@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         final String LOG_TAG = "Content Provider";
         try {
             Cursor cursor = getContentResolver().
-                    query(Uri.parse("com.example.myapplication.provider/users"), null, null, null, null);
+                    query(Uri.parse("content://com.example.myapplication.provider/users"), null, null, null, null);
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     long id;
