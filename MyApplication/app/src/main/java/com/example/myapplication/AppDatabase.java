@@ -25,5 +25,14 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     }
 
+    public static void closeConnection() {
+        synchronized(AppDatabase.class) {
+            if(instance != null) {
+                instance.close();
+                instance = null;
+            }
+        }
+    }
+
     public abstract UserDao userDao();
 }

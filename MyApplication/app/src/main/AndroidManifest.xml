@@ -4,12 +4,7 @@
 
     <queries>
         <package android:name="com.example.myapplication" />
-        <provider android:authorities="com.example.myapplication.provider" />
     </queries>
-
-    <permission
-        android:name="MyProvider._READ_PERMISSION"
-        android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -22,9 +17,7 @@
             android:name=".MyContentProvider"
             android:authorities="com.example.myapplication.provider"
             android:enabled="true"
-            android:exported="true"
-            android:readPermission="MyProvider._READ_PERMISSION"
-            android:grantUriPermissions="true" />
+            android:exported="true" />
 
         <receiver
             android:name=".NumberReceiver"
