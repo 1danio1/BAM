@@ -26,7 +26,12 @@ public class MyContentProvider extends ContentProvider {
 
     @Override
     public String getType(Uri uri) {
-        return "text/plain";
+        switch (uriMatcher.match(uri)) {
+            case USERS:
+                return "vnd.android.cursor.dir/users";
+            default:
+                throw new IllegalArgumentException("Unsupported URI: " + uri);
+        }
     }
 
     @Override
