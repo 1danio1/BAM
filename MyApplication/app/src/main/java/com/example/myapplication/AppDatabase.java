@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {User.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static final String DB_NAME = "MyApplication_Database.db";
     private static volatile AppDatabase instance;
@@ -22,6 +22,15 @@ public abstract class AppDatabase extends RoomDatabase {
                 instance = Room.databaseBuilder(context, AppDatabase.class, DB_NAME).build();
             }
             return instance;
+        }
+    }
+
+    public static void closeConnection() {
+        synchronized(AppDatabase.class) {
+            if(instance != null) {
+                instance.close();
+                instance = null;
+            }
         }
     }
 

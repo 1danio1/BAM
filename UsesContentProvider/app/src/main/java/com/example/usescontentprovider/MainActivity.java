@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
+    private static final Uri CONTENT_URI = Uri.parse("content://com.example.myapplication.provider/users");
     private static final String ID_COLUMN = "uid";
     private static final String NAME_COLUMN = "name";
     private static final String NUMBER_COLUMN = "number";
@@ -22,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public void getDataFromProvider(View view) {
         final String LOG_TAG = "Content Provider";
         try {
-            Cursor cursor = getContentResolver().
-                    query(Uri.parse("content://com.example.myapplication.provider/users"), null, null, null, null);
+            Cursor cursor = getContentResolver().query(CONTENT_URI, null, null, null, null);
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     long id;

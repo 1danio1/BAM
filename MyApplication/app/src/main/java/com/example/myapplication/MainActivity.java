@@ -24,4 +24,10 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(MAIN_ACTIVITY_NAME, name);
         startActivity(intent);
     }
+
+    @Override
+    protected void onDestroy() {
+        AppDatabase.closeConnection();
+        super.onDestroy();
+    }
 }

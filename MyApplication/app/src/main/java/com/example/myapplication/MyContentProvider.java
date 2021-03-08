@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
@@ -9,7 +10,7 @@ import android.net.Uri;
 import androidx.sqlite.db.SupportSQLiteQueryBuilder;
 
 public class MyContentProvider extends ContentProvider {
-    private static final String AUTHORITY = "com.example.myapplication.provider";
+    public static final String AUTHORITY = "com.example.myapplication.provider";
     private static final int USERS = 1;
     private static AppDatabase db = null;
 
