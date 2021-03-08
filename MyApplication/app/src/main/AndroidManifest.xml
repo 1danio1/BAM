@@ -23,7 +23,8 @@
             android:authorities="com.example.myapplication.provider"
             android:enabled="true"
             android:exported="true"
-            android:readPermission="MyProvider._READ_PERMISSION" />
+            android:readPermission="MyProvider._READ_PERMISSION"
+            android:grantUriPermissions="true" />
 
         <receiver
             android:name=".NumberReceiver"
