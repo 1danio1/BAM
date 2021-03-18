@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PermissionTest</string>
     <string name="execute_get_request">Execute GET Request</string>
+    <string name="read_contacts">Read contacts</string>
 </resources>

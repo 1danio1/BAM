@@ -14,11 +14,16 @@ public class NetworkStateReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.d(LOG_TAG, "Checking network state");
 
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo =  connectivityManager.getActiveNetworkInfo();
-        if(networkInfo != null) {
-            Log.d(LOG_TAG, "Is connected: " + networkInfo.isConnected());
-            Log.d(LOG_TAG, "Type: " + networkInfo.getType() + " " + ConnectivityManager.TYPE_WIFI);
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            if (networkInfo != null) {
+                Log.d(LOG_TAG, "Is connected: " + networkInfo.isConnected());
+                Log.d(LOG_TAG, "Type: " + networkInfo.getType() + " " + ConnectivityManager.TYPE_WIFI);
+            }
+        }
+        catch(final Exception e) {
+            Log.e(LOG_TAG, e.getMessage());
         }
     }
 }
