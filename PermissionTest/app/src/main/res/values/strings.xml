@@ -2,4 +2,8 @@
     <string name="app_name">PermissionTest</string>
     <string name="execute_get_request">Execute GET Request</string>
     <string name="read_contacts">Read contacts</string>
+    <string name="additional_task_normal_permission">Additional task: normal permission</string>
+    <string name="toggle_bluetooth">Toggle Bluetooth</string>
+    <string name="additional_task_dangerous_permission">Additional task: dangerous permission</string>
+    <string name="read_calendar">Read calendar</string>
 </resources>
