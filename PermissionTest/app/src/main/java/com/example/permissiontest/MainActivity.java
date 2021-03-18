@@ -155,8 +155,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void readCalendar() {
-        Toast.makeText(getApplicationContext(), "CALENDAR TEST", Toast.LENGTH_SHORT).show();
-
         final String LOG_TAG = "READ_CALENDAR";
         String[] projection = new String[]{
                 CalendarContract.Calendars._ID,
