@@ -2,6 +2,9 @@ package com.example.permissiontest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,11 +15,26 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
+    BroadcastReceiver networkStateReceiver = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        networkStateReceiver = new NetworkStateReceiver();
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkStateReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(networkStateReceiver != null) {
+            unregisterReceiver(networkStateReceiver);
+            networkStateReceiver = null;
+        }
+
+        super.onDestroy();
     }
 
     public void executeGetRequest(View view) {
